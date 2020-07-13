@@ -1,0 +1,41 @@
+extends base
+block content
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    .container
+        .row
+            .col-12
+                main.main
+                  .login-form
+                      h2.heading-secondary.ma-bt-md delete user
+                      form.form.form--delete
+                          .form__group
+                            label.form__label(for='email') Email address
+                            input#email.form__input(type='email', placeholder='you@example.com', required)
+                          .form__group.right
+                            button.btn.btn-outline-secondary Delete
+                      h2.heading-secondary.ma-bt-md update user
+                      form.form.form--update
+                          .form__group
+                            label.form__label(for='email') Email address
+                            input#mail.form__input(type='email', placeholder='you@example.com', required)
+                          .form__group
+                            label.form__label(for='role') Role
+                            input#role.form__input(type='text', placeholder='promot user', required)
+                          .form__group.right
+                            button.btn.btn-outline-secondary Update
+
+
+
+                          
+
+                    
+                
+              
+            

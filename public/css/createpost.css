@@ -1,0 +1,131 @@
+.container {
+  max-width: 800px;
+  width: 80%;
+  margin: 10px auto 50px; }
+
+.center {
+  text-align: center; }
+
+h1 {
+  text-align: center; }
+
+#page-title {
+  margin-bottom: 60px;
+  clear: both; }
+
+#write-button {
+  position: absolute;
+  right: 60px;
+  top: 27px;
+  margin: 0; }
+
+img {
+  max-width: 100%; }
+
+h2 {
+  font-size: 25px;
+  color: #046380;
+  margin: 0;
+  padding-top: 20px; }
+  h2 a {
+    text-decoration: none; }
+    h2 a:visited {
+      color: inherit; }
+    h2 a:focus {
+      outline: none; }
+
+.meta {
+  padding: 15px 0;
+  font-style: italic;
+  color: #A7A37E; }
+  .meta .date {
+    font-weight: bold; }
+
+.post {
+  font-size: 17px;
+  line-height: 20px; }
+  .post img {
+    border-radius: 10px; }
+
+.body-div {
+  margin-bottom: 50px; }
+
+.site {
+  border-left: 5px solid #A30032;
+  padding-left: 15px;
+  margin: 25px 0; }
+  .site a {
+    color: #046380;
+    text-decoration: none; }
+
+.hide {
+  display: none; }
+
+.show {
+  display: block; }
+
+.header-div {
+  cursor: pointer;
+  box-sizing: border-box; }
+
+article {
+  margin-bottom: 60px; }
+
+hr {
+  margin: 0; }
+
+.form-group {
+  margin-top: 20px; }
+
+.full-width-input {
+  width: 100%; }
+
+.flex-form {
+  display: flex;
+  justify-content: space-between; }
+
+.half-width {
+  flex-basis: 45%; }
+
+input, textarea {
+  font-size: 1.4em; }
+
+textarea {
+  resize: none; }
+
+.half-width input {
+  width: 100%; }
+
+.button1 {
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px gray;
+  margin-top: 20px;
+  font-size: 1.0em;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: black; }
+  .button1:focus {
+    outline: none; }
+  .button1:hover {
+    background-color:#000066; }
+
+.write-post {
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px gray;
+  margin-top: 20px;
+  font-size: 1.0em;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #002F2F; }
+  .write-post:focus {
+    outline: none; }
+  .write-post:hover {
+    background-color: #046380; }
+
+

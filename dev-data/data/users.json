@@ -1,0 +1,11 @@
+[
+  {
+    "photo": "default.jpg",
+    "role": "admin",
+    "active": true,
+    "name": "Abhijeet",
+    "email": "sipun@mailsac.com",
+    "password": "$2a$12$kG66OxErTksIYXMFMmax/ui96QOTVU7s6Efa4QT0y6lFHa91fjnAe",
+    "__v": 0
+}
+]

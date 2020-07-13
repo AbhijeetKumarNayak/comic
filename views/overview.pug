@@ -1,0 +1,70 @@
+extends base
+
+block content
+    .row
+      .col-8
+        .wrapper
+        if (prods.length > 0)
+        each comic in prods
+          section.blog-list
+              .item
+                .media
+                  .media-body
+                    h3.title
+                      a(href=`/getcomic/${comic.slug}` style="color: black") #{comic.title}
+                    .meta
+                      span.date #{comic.createdAt}
+                      span.comment
+                        a(href="#" style="color: silver") 8 comments
+                    .intro
+                      | #{comic.hint}
+                    a.more-link(href=`/getcomic/${comic.slug}`) Read more →
+                  // //media-body
+                // //media
+              // //item
+        section.pagination
+          if (currentPage !== 1 && previousPage !== 1)
+            a(href="?page=1") 1
+          if (hasPreviousPage) 
+            a(href=`?page=${previousPage}`) #{previousPage}
+          else
+            a.active(href=`?page=${currentPage}`) #{currentPage}
+          if (hasNextPage) 
+            a(href=`?page=${nextPage}`) #{nextPage}
+          if (lastPage !== currentPage && nextPage !== lastPage) 
+            a(href=`?page=${lastPage}`) #{lastPage}
+
+
+
+      .col-4
+        br
+        nav.navbar.navbar-expand-sm.bg-light.navbar-dark
+          ul.navbar-nav
+            form.form-inline.my-2.my-lg-0(method='GET', action='getcomics')
+              input.form-control.mr-sm-2(type="search" placeholder="Search" name="id" aria-label="Search")
+              button.btn.btn.btn-info.my-2.my-sm-0(type="submit") Search
+        // ---------------------------------------------------------------------------------------------------------------
+        h4.categories Categories
+        .bar123
+        select.form-control.form-control-sm.mt-3(onchange="window.location.href=this.value")
+          option Select Category
+            optgroup(label=`Odia Sex Stories(${totalodia})`)
+            each comic in odia
+              option(value=`/category/subcategory/${comic.subcategory}`) #{comic.subcategory} 
+
+            //- optgroup(label='English sex stories')
+            //- each comic in comics
+            //-   option #{comic.subcategory}
+            //- optgroup(label='Hindhi sex stories')
+            //- each comic in comics
+            //-   option #{comic.subcategory}
+            //- optgroup(label='Bengali sex stories')
+            //- each comic in comics
+            //-   option #{comic.subcategory}
+            //- optgroup(label='Tamil sex stories')
+            //- each comic in comics
+            //-   option #{comic.subcategory}
+            //- optgroup(label='Telugu sex stories')
+            //- each comic in comics
+            //-   option #{comic.subcategory}
+

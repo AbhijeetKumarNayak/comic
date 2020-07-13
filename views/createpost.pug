@@ -1,0 +1,46 @@
+extends base
+
+block content
+    .container
+      h1#page-title Create A New Blog Post
+      a.button1(href="#") Go Back
+      form.new-post.form--upload
+        .form-group
+          label(for="title") Post Title
+          br
+          input#title.full-width-input(type="text"  value="" required="")
+        .form-group
+          label(for="author") Author Name
+          br
+          input#authorname.full-width-input(type="text"  value="" required="")
+        .form-group
+          label(for="category") Select Category:-
+          br
+          input(type="radio" name="category" value="odia")
+          | odia
+          input(type="radio" name="category" value="english")
+          | english
+          input(type="radio" name="category" value="hindhi")
+          | hindhi
+          input(type="radio" name="category" value="others")
+          | others 
+          br
+          button(type="button" onclick="displayRadioValue()")
+            | Submit
+          br
+          label(for="category") Category is:-
+          #category
+        .form-group
+          label(for="subcategory") Sub Category
+          br
+          input#subcategory.full-width-input(type="text"  value="" required="")
+        .form-group
+          label(for="hint") Hints
+          input#hint.full-width-input(type="text"  value="" required="")
+          br
+        .form-group
+          label(for="description") Post Content
+          br
+          textarea#description.full-width-input(type="text"  rows="20" cols="80" required="")
+        input.write-post(type="submit" value="Publish")
+

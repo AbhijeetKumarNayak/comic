@@ -1,0 +1,74 @@
+extends base
+
+block content
+  .row
+    .col-8
+      .wrapper
+        section.blog-list
+          .item
+            .media
+              .media-body
+                h3.title
+                  a(href=`/getcomic/${comic.slug}` style="color: black") #{comic.title}
+                .meta
+                  span.date #{comic.createdAt}
+                .intro
+                  | #{comic.description}
+            span.comment
+              | Author: #{comic.author}
+              // //media-body
+              // //media
+              // //item
+    .col-4
+      br
+      nav.navbar.navbar-expand-sm.bg-light.navbar-dark
+        ul.navbar-nav
+          form.form-inline.my-2.my-lg-0
+            input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
+            button.btn.btn.btn-info.my-2.my-sm-0(type="submit") Search
+      // ---------------------------------------------------------------------------------------------------------------
+      h4.categories Categories
+      .bar123
+      select.form-control.form-control-sm.mt-3(onchange="window.location.href=this.value")
+        option Select Category
+          optgroup(label=`Odia Sex Stories(${total})`)
+          each comic in odia
+            option(value="/category") #{comic.subcategory}  
+  .col-xs-12.col-sm-12.col-md-14.col-lg-14.col-xl-14
+    br
+    ul.nav.nav-tabs
+      li.active
+        a.nav-link(data-toggle="tab" href="#home")
+          i.fa.fa-newspaper-o.mr-3
+          | Comments
+      li.nav-item
+        a.nav-link(data-toggle="tab" href="#menu1")
+          i.fa.fa-tags.mr-3
+          | Add comment
+  .tab-content
+    #home.tab-pane.active
+      if (review.length > 0)
+        .scroll
+          each rev in review
+            h5.font-weight-bold
+              | #{rev.name}
+            .example1
+              | #{rev.review}
+      else
+        h5.font-weight-bold
+          | No comment found be the first
+    #menu1.tab-pane.fade
+      form(method='POST', action=`/createcomment/${comic.title}`)
+        .form__group
+          label.form__label(for='text') Your comment
+          input.form-control(type='text',name="review" ,required)
+        .form__group
+          label.form__label(for='text') Your name
+          input.form-control(type='text',name="name", required)
+        .form__group
+          label.form__label(for='text') Your mail
+          input.form-control(type='email',name="mail", required)
+        .form__group
+          button.btn.btn-outline-secondary Post
+
+
