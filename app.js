@@ -8,6 +8,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const AppError = require('./utils/appError');
+const compression = require('compression');
 const globalErrorHandler = require('./controllers/errorController');
 const comicRouter = require('./routes/comicRoutes');
 const userRouter = require('./routes/userRoutes');
@@ -49,7 +50,7 @@ app.use(mongoSanitize());
 app.use(xss());
 // Serving static files
 app.use(express.static(`${__dirname}/public`));
-
+app.use(compression());
 // Test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();

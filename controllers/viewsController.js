@@ -15,7 +15,7 @@ exports.getProducts = catchAsync(async(req, res, next) => {
   const page = +req.query.page || 1;
   let totalItems;
   let totalodia;
-  let sub;
+  // let sub;
   Comic.countDocuments({ category:"odia" }, function(err, result) {
     totalodia=result
   });
@@ -25,14 +25,14 @@ exports.getProducts = catchAsync(async(req, res, next) => {
   //   sub = result.subcategory
   // });
   // console.log(sub)
-  var previousName;
-Comic.find().sort('subcategory').exec()(function (person) {
-  var name = person.subcategory;
-  if (name == previousName) {
-    console.log(name);
-  }
-  previousName = name;
-})
+//   var previousName;
+// Comic.find().sort('subcategory').exec()(function (person) {
+//   var name = person.subcategory;
+//   if (name == previousName) {
+//     console.log(name);
+//   }
+//   previousName = name;
+// })
   Comic.find()
     .countDocuments()
     .then(numProducts => {
