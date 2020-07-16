@@ -28,13 +28,13 @@ h7
                 a.dropdown-item(href="#") Link 3
             li.nav-item
               a.nav-link(href="#") Publish Stories
-        .nav.nav.nav--user
+        .navbar-nav.ml-auto
           if user
-            a.nav__el(href='/logout') Log out
-            a.nav__el(href='/me')
+            a.nav-item.nav-link(href='/logout') Log out
+            a.nav-item.nav-link(href='/me')
               img.nav__user-img(src=`/img/users/${user.photo}` alt=`Photo of ${user.name}`)
               span= user.name.split(' ')[0]
           else
-            a.nav__el(href='/login')
+            a.nav-item.nav-link(href='/login')
               i.fa.fa-user-o.mr-3
               | AdminLogin

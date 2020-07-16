@@ -431,9 +431,9 @@
     border-bottom: 1px solid currentColor;
   }
   .nav__user-img {
-    height: 3.5rem;
-    width: 3.5rem;
-    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 250%;
     margin-right: 1rem;
   }
   

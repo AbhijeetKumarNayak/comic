@@ -14,25 +14,73 @@ const ITEMS_PER_PAGE = 10;
 exports.getProducts = catchAsync(async(req, res, next) => {
   const page = +req.query.page || 1;
   let totalItems;
-  let totalodia;
-  // let sub;
+
+
+  let totalodia=0;
   Comic.countDocuments({ category:"odia" }, function(err, result) {
     totalodia=result
   });
   const featuresodia = new APIFeatures(Comic.where('category').in(['odia']));
   const odia= await featuresodia.query;
-  // Comic.distinct('subcategory',function(err,result){
-  //   sub = result.subcategory
-  // });
-  // console.log(sub)
-//   var previousName;
-// Comic.find().sort('subcategory').exec()(function (person) {
-//   var name = person.subcategory;
-//   if (name == previousName) {
-//     console.log(name);
-//   }
-//   previousName = name;
-// })
+  let odiai;
+  let odiag;
+  let odiak;
+  let odiap=new Array(odia.length);
+  let odiaresult;
+  for(odiai=0;odiai<odia.length;odiai++){
+    odiag=odia[odiai];
+    odiak=odiag.subcategory;
+    odiap[odiai]=odiak;
+  }
+  function removeDuplicates(data){
+    return data.filter((value,index)=>data.indexOf(value)===index);
+  }
+  odiaresult=removeDuplicates(odiap);
+
+  let totalenglish=0;
+  Comic.countDocuments({ category:"english" }, function(err, result) {
+    totalenglish=result
+  });
+  const featuresenglish = new APIFeatures(Comic.where('category').in(['english']));
+  const english= await featuresenglish.query;
+  let englishi;
+  let englishg;
+  let englishk;
+  let englishp=new Array(english.length);
+  let englishresult;
+  for(englishi=0;englishi<english.length;englishi++){
+    englishg=english[englishi];
+    englishk=englishg.subcategory;
+    englishp[englishi]=englishk;
+  }
+  function removeDuplicates(data){
+    return data.filter((value,index)=>data.indexOf(value)===index);
+  }
+  englishresult=removeDuplicates(englishp);
+
+  let totalhindhi=0;
+  Comic.countDocuments({ category:"hindhi" }, function(err, result) {
+    totalhindhi=result
+  });
+  const featureshindhi = new APIFeatures(Comic.where('category').in(['hindhi']));
+  const hindhi= await featureshindhi.query;
+  let hindhii;
+  let hindhig;
+  let hindhik;
+  let hindhip=new Array(hindhi.length);
+  let hindhiresult;
+  for(hindhii=0;hindhii<hindhi.length;hindhii++){
+    hindhig=hindhi[hindhii];
+    hindhik=hindhig.subcategory;
+    hindhip[hindhii]=hindhik;
+  }
+  function removeDuplicates(data){
+    return data.filter((value,index)=>data.indexOf(value)===index);
+  }
+  hindhiresult=removeDuplicates(hindhip);
+
+
+
   Comic.find()
     .countDocuments()
     .then(numProducts => {
@@ -46,8 +94,12 @@ exports.getProducts = catchAsync(async(req, res, next) => {
       res.render('overview', {
         prods: products,
         title: 'overview',
-        odia:odia,
+        odia:odiaresult,
         totalodia:totalodia,
+        english:englishresult,
+        totalenglish:totalenglish,
+        hindhi:hindhiresult,
+        totalhindhi:totalhindhi,
         currentPage: page,
         hasNextPage: ITEMS_PER_PAGE * page < totalItems,
         hasPreviousPage: page > 1,
@@ -136,12 +188,69 @@ exports.getComic = catchAsync(async (req, res, next) => {
   }
 
   
-  let totalodia;
-  Comic.count({ category:"odia" }, function(err, result) {
+
+  let totalodia=0;
+  Comic.countDocuments({ category:"odia" }, function(err, result) {
     totalodia=result
   });
   const featuresodia = new APIFeatures(Comic.where('category').in(['odia']));
-  const odia = await featuresodia.query;
+  const odia= await featuresodia.query;
+  let odiai;
+  let odiag;
+  let odiak;
+  let odiap=new Array(odia.length);
+  let odiaresult;
+  for(odiai=0;odiai<odia.length;odiai++){
+    odiag=odia[odiai];
+    odiak=odiag.subcategory;
+    odiap[odiai]=odiak;
+  }
+  function removeDuplicates(data){
+    return data.filter((value,index)=>data.indexOf(value)===index);
+  }
+  odiaresult=removeDuplicates(odiap);
+
+  let totalenglish=0;
+  Comic.countDocuments({ category:"english" }, function(err, result) {
+    totalenglish=result
+  });
+  const featuresenglish = new APIFeatures(Comic.where('category').in(['english']));
+  const english= await featuresenglish.query;
+  let englishi;
+  let englishg;
+  let englishk;
+  let englishp=new Array(english.length);
+  let englishresult;
+  for(englishi=0;englishi<english.length;englishi++){
+    englishg=english[englishi];
+    englishk=englishg.subcategory;
+    englishp[englishi]=englishk;
+  }
+  function removeDuplicates(data){
+    return data.filter((value,index)=>data.indexOf(value)===index);
+  }
+  englishresult=removeDuplicates(englishp);
+
+  let totalhindhi=0;
+  Comic.countDocuments({ category:"hindhi" }, function(err, result) {
+    totalhindhi=result
+  });
+  const featureshindhi = new APIFeatures(Comic.where('category').in(['hindhi']));
+  const hindhi= await featureshindhi.query;
+  let hindhii;
+  let hindhig;
+  let hindhik;
+  let hindhip=new Array(hindhi.length);
+  let hindhiresult;
+  for(hindhii=0;hindhii<hindhi.length;hindhii++){
+    hindhig=hindhi[hindhii];
+    hindhik=hindhig.subcategory;
+    hindhip[hindhii]=hindhik;
+  }
+  function removeDuplicates(data){
+    return data.filter((value,index)=>data.indexOf(value)===index);
+  }
+  hindhiresult=removeDuplicates(hindhip);
 
  
 
@@ -151,8 +260,12 @@ exports.getComic = catchAsync(async (req, res, next) => {
     title: `${comic.title}`,
     comic,
     review,
-    total:totalodia,
-    odia:odia
+    odia:odiaresult,
+    totalodia:totalodia,
+    english:englishresult,
+    totalenglish:totalenglish,
+    hindhi:hindhiresult,
+    totalhindhi:totalhindhi
   });
 });
 exports.createpost= (req,res) =>{
@@ -299,12 +412,70 @@ const ITEMS_PER_CATEGORY =10
 exports.getCategory =catchAsync(async(req, res, next) => {
   const page = +req.query.page || 1;
   let totalItemsCategory;
-  let totalodiacategory;
-  Comic.count({ category:"odia" }, function(err, result) {
-    totalodiacategory =result
+
+  let totalodia=0;
+  Comic.countDocuments({ category:"odia" }, function(err, result) {
+    totalodia=result
   });
-  const featuresodiacategory = new APIFeatures(Comic.where('category').in(['odia']));
-  const odiacategory = await featuresodiacategory.query;
+  const featuresodia = new APIFeatures(Comic.where('category').in(['odia']));
+  const odia= await featuresodia.query;
+  let odiai;
+  let odiag;
+  let odiak;
+  let odiap=new Array(odia.length);
+  let odiaresult;
+  for(odiai=0;odiai<odia.length;odiai++){
+    odiag=odia[odiai];
+    odiak=odiag.subcategory;
+    odiap[odiai]=odiak;
+  }
+  function removeDuplicates(data){
+    return data.filter((value,index)=>data.indexOf(value)===index);
+  }
+  odiaresult=removeDuplicates(odiap);
+
+  let totalenglish=0;
+  Comic.countDocuments({ category:"english" }, function(err, result) {
+    totalenglish=result
+  });
+  const featuresenglish = new APIFeatures(Comic.where('category').in(['english']));
+  const english= await featuresenglish.query;
+  let englishi;
+  let englishg;
+  let englishk;
+  let englishp=new Array(english.length);
+  let englishresult;
+  for(englishi=0;englishi<english.length;englishi++){
+    englishg=english[englishi];
+    englishk=englishg.subcategory;
+    englishp[englishi]=englishk;
+  }
+  function removeDuplicates(data){
+    return data.filter((value,index)=>data.indexOf(value)===index);
+  }
+  englishresult=removeDuplicates(englishp);
+
+  let totalhindhi=0;
+  Comic.countDocuments({ category:"hindhi" }, function(err, result) {
+    totalhindhi=result
+  });
+  const featureshindhi = new APIFeatures(Comic.where('category').in(['hindhi']));
+  const hindhi= await featureshindhi.query;
+  let hindhii;
+  let hindhig;
+  let hindhik;
+  let hindhip=new Array(hindhi.length);
+  let hindhiresult;
+  for(hindhii=0;hindhii<hindhi.length;hindhii++){
+    hindhig=hindhi[hindhii];
+    hindhik=hindhig.subcategory;
+    hindhip[hindhii]=hindhik;
+  }
+  function removeDuplicates(data){
+    return data.filter((value,index)=>data.indexOf(value)===index);
+  }
+  hindhiresult=removeDuplicates(hindhip);
+
 
   Comic.where('subcategory').in([req.params.sub])
     .countDocuments()
@@ -319,8 +490,12 @@ exports.getCategory =catchAsync(async(req, res, next) => {
       res.render('category', {
         prods: products,
         title: 'subcategory',
-        odia: odiacategory,
-        totalodia:totalodiacategory,
+        odia:odiaresult,
+        totalodia:totalodia,
+        english:englishresult,
+        totalenglish:totalenglish,
+        hindhi:hindhiresult,
+        totalhindhi:totalhindhi,
         currentPage: page,
         hasNextPage: ITEMS_PER_CATEGORY * page < totalItemsCategory,
         hasPreviousPage: page > 1,

@@ -50,14 +50,13 @@ block content
           option Select Category
             optgroup(label=`Odia Sex Stories(${totalodia})`)
             each comic in odia
-              option(value=`/category/subcategory/${comic.subcategory}`) #{comic.subcategory} 
-
-            //- optgroup(label='English sex stories')
-            //- each comic in comics
-            //-   option #{comic.subcategory}
-            //- optgroup(label='Hindhi sex stories')
-            //- each comic in comics
-            //-   option #{comic.subcategory}
+              option(value=`/category/subcategory/${comic}`) #{comic} 
+            optgroup(label=`English Sex Stories(${totalenglish})`)
+            each comic in english
+              option(value=`/category/subcategory/${comic}`) #{comic} 
+            optgroup(label=`Hindhi Sex Stories(${totalhindhi})`)
+            each comic in hindhi
+              option(value=`/category/subcategory/${comic}`) #{comic} 
             //- optgroup(label='Bengali sex stories')
             //- each comic in comics
             //-   option #{comic.subcategory}
