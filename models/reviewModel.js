@@ -16,8 +16,7 @@ const reviewSchema = new mongoose.Schema(
     mail:{
         type: String,
         required: [true, 'Please provide your email'],
-        lowercase: true,
-        validate: [validator.isEmail, 'Please provide a valid email']  
+        lowercase: true
     },
 
     createdAt: {
