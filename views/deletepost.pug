@@ -11,15 +11,34 @@ block content
     .container
         .row
             .col-12
-                main.main
-                  .login-form
-                      h2.heading-secondary.ma-bt-md delete user
-                      form.form.form--deletepost
-                          .form__group
-                            label.form__label(for='title') Title
-                            input#post.form__input(type='title', placeholder='post title', required)
-                          .form__group.right
-                            button.btn.btn-outline-secondary Delete
+              .my-login-page
+                section.h-100
+                  .container.h-100
+                    .row.justify-content-md-center.h-100
+                      .card-wrapper
+                        //- .brand
+                          //- img(src="img/logo.jpg")
+                        .card.fat
+                          .card-body
+                            h4.card-title Delete Post
+                            form.form.form--deletepost
+                              .form-group
+                                label(for="title") Enter Title
+                                input#post.form-control(type="text"  value="" required="" autofocus="")
+                                .invalid-feedback
+                                  | Title is invalid
+                              .form-group.m-0
+                                button.btn.btn-primary.btn-block(type="submit")
+                                  | Delete
+                //- main.main
+                //-   .login-form
+                //-       h2.heading-secondary.ma-bt-md delete user
+                //-       form.form.form--deletepost
+                //-           .form__group
+                //-             label.form__label(for='title') Title
+                //-             input#post.form__input(type='title', placeholder='post title', required)
+                //-           .form__group.right
+                //-             button.btn.btn-outline-secondary Delete
 
 
 

@@ -13,7 +13,7 @@ export const deletepost = async (title) => {
       if (res.data.status === 'success') {
         showAlert('success', 'post deleted  successfully');
         window.setTimeout(() => {
-          location.assign('/deleteuser');
+          location.assign('/deletepost');
         }, 1550);
       }
     } catch (err) {

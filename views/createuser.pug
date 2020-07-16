@@ -1,21 +1,58 @@
 extends base
 
 block content
-  main.main
-    .login-form
-      h2.heading-secondary.ma-bt-lg Create User
-      form.form.form--signup
-        .form__group
-          label.form__label(for='name') Name
-          input#name.form__input(type='text', placeholder='Abhijeet', required)
-        .form__group
-          label.form__label(for='email') Email address
-          input#email.form__input(type='email', placeholder='you@example.com', required)
-        .form__group.ma-bt-md
-          label.form__label(for='password') Password
-          input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
-        .form__group.ma-bt-md
-          label.form__label(for='confirmPassword') Re-enter
-          input#confirmPassword.form__input(type='password', placeholder='••••••••', required, minlength='8')
-        .form__group
-          button.btn.btn-outline-secondary Signup
+  .my-login-page
+    section.h-100
+      .container.h-100
+        .row.justify-content-md-center.h-100
+          .card-wrapper
+            //- .brand
+              //- img(src="img/logo.jpg")
+            .card.fat
+              .card-body
+                h4.card-title Create User
+                form.form.form--signup
+                  .form-group
+                    label(for="name") Name
+                    input#name.form-control(type="text" value="" required="" autofocus="")
+                    .invalid-feedback
+                      | Email is invalid
+                  .form-group
+                    label(for="email") E-Mail Address
+                    input#email.form-control(type="email"  value="" required="" autofocus="")
+                    .invalid-feedback
+                      | Email is invalid
+                  .form-group
+                    label(for="password")
+                      | Password
+                    input#password.form-control(type="password"  required="" data-eye="")
+                    .invalid-feedback
+                      | Password is required
+                  .form-group
+                    label(for="confirmPassword")
+                      | Password
+                    input#confirmPassword.form-control(type="password"  required="" data-eye="")
+                    .invalid-feedback
+                      | Password is required
+                  .form-group.m-0
+                    button.btn.btn-primary.btn-block(type="submit")
+                      | Submit
+
+  //- main.main
+  //-   .login-form
+  //-     h2.heading-secondary.ma-bt-lg Create User
+  //-     form.form.form--signup
+  //-       .form__group
+  //-         label.form__label(for='name') Name
+  //-         input#name.form__input(type='text', placeholder='Abhijeet', required)
+  //-       .form__group
+  //-         label.form__label(for='email') Email address
+  //-         input#email.form__input(type='email', placeholder='you@example.com', required)
+  //-       .form__group.ma-bt-md
+  //-         label.form__label(for='password') Password
+  //-         input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+  //-       .form__group.ma-bt-md
+  //-         label.form__label(for='confirmPassword') Re-enter
+  //-         input#confirmPassword.form__input(type='password', placeholder='••••••••', required, minlength='8')
+  //-       .form__group
+  //-         button.btn.btn-outline-secondary Signup

@@ -606,4 +606,82 @@ exports.createcomment = catchAsync(async (req, res, next) => {
 
   });
 
-})
+});
+exports.publish=catchAsync(async (req, res, next) => {
+  
+  let totalodia=0;
+  Comic.countDocuments({ category:"odia" }, function(err, result) {
+    totalodia=result
+  });
+  const featuresodia = new APIFeatures(Comic.where('category').in(['odia']));
+  const odia= await featuresodia.query;
+  let odiai;
+  let odiag;
+  let odiak;
+  let odiap=new Array(odia.length);
+  let odiaresult;
+  for(odiai=0;odiai<odia.length;odiai++){
+    odiag=odia[odiai];
+    odiak=odiag.subcategory;
+    odiap[odiai]=odiak;
+  }
+  function removeDuplicates(data){
+    return data.filter((value,index)=>data.indexOf(value)===index);
+  }
+  odiaresult=removeDuplicates(odiap);
+
+  let totalenglish=0;
+  Comic.countDocuments({ category:"english" }, function(err, result) {
+    totalenglish=result
+  });
+  const featuresenglish = new APIFeatures(Comic.where('category').in(['english']));
+  const english= await featuresenglish.query;
+  let englishi;
+  let englishg;
+  let englishk;
+  let englishp=new Array(english.length);
+  let englishresult;
+  for(englishi=0;englishi<english.length;englishi++){
+    englishg=english[englishi];
+    englishk=englishg.subcategory;
+    englishp[englishi]=englishk;
+  }
+  function removeDuplicates(data){
+    return data.filter((value,index)=>data.indexOf(value)===index);
+  }
+  englishresult=removeDuplicates(englishp);
+
+  let totalhindhi=0;
+  Comic.countDocuments({ category:"hindhi" }, function(err, result) {
+    totalhindhi=result
+  });
+  const featureshindhi = new APIFeatures(Comic.where('category').in(['hindhi']));
+  const hindhi= await featureshindhi.query;
+  let hindhii;
+  let hindhig;
+  let hindhik;
+  let hindhip=new Array(hindhi.length);
+  let hindhiresult;
+  for(hindhii=0;hindhii<hindhi.length;hindhii++){
+    hindhig=hindhi[hindhii];
+    hindhik=hindhig.subcategory;
+    hindhip[hindhii]=hindhik;
+  }
+  function removeDuplicates(data){
+    return data.filter((value,index)=>data.indexOf(value)===index);
+  }
+  hindhiresult=removeDuplicates(hindhip);
+  res.status(200).render('publish',{
+    status: 'success',
+    title: "Submit-Story",
+    odia:odiaresult,
+    totalodia:totalodia,
+    english:englishresult,
+    totalenglish:totalenglish,
+    hindhi:hindhiresult,
+    totalhindhi:totalhindhi
+
+  });
+
+
+});

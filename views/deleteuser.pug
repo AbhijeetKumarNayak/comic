@@ -11,25 +11,60 @@ block content
     .container
         .row
             .col-12
-                main.main
-                  .login-form
-                      h2.heading-secondary.ma-bt-md delete user
-                      form.form.form--delete
-                          .form__group
-                            label.form__label(for='email') Email address
-                            input#email.form__input(type='email', placeholder='you@example.com', required)
-                          .form__group.right
-                            button.btn.btn-outline-secondary Delete
-                      h2.heading-secondary.ma-bt-md update user
-                      form.form.form--update
-                          .form__group
-                            label.form__label(for='email') Email address
-                            input#mail.form__input(type='email', placeholder='you@example.com', required)
-                          .form__group
-                            label.form__label(for='role') Role
-                            input#role.form__input(type='text', placeholder='promot user', required)
-                          .form__group.right
-                            button.btn.btn-outline-secondary Update
+              .my-login-page
+                section.h-100
+                  .container.h-100
+                    .row.justify-content-md-center.h-100
+                      .card-wrapper
+                        //- .brand
+                          //- img(src="img/logo.jpg")
+                        .card.fat
+                          .card-body
+                            h4.card-title Delete User
+                            form.form.form--delete
+                              .form-group
+                                label(for="email") E-Mail Address
+                                input#email.form-control(type="email"  value="" required="" autofocus="")
+                                .invalid-feedback
+                                  | Email is invalid
+                              .form-group.m-0
+                                button.btn.btn-primary.btn-block(type="submit")
+                                  | Delete
+                            h4.card-title Upadte User
+                            form.form.form--update
+                              .form-group
+                                label(for="email") E-Mail Address
+                                input#mail.form-control(type="email"  value="" required="" autofocus="")
+                                .invalid-feedback
+                                  | Email is invalid
+                              .form-group
+                                label(for="role") Role
+                                input#role.form-control(type="text"  value="" required="" autofocus="")
+                                .invalid-feedback
+                                  | Email is invalid
+                              .form-group.m-0
+                                button.btn.btn-primary.btn-block(type="submit")
+                                  | Update
+
+                //- main.main
+                //-   .login-form
+                //-       h2.heading-secondary.ma-bt-md delete user
+                //-       form.form.form--delete
+                //-           .form__group
+                //-             label.form__label(for='email') Email address
+                //-             input#email.form__input(type='email', placeholder='you@example.com', required)
+                //-           .form__group.right
+                //-             button.btn.btn-outline-secondary Delete
+                //-       h2.heading-secondary.ma-bt-md update user
+                //-       form.form.form--update
+                //-           .form__group
+                //-             label.form__label(for='email') Email address
+                //-             input#mail.form__input(type='email', placeholder='you@example.com', required)
+                //-           .form__group
+                //-             label.form__label(for='role') Role
+                //-             input#role.form__input(type='text', placeholder='promot user', required)
+                //-           .form__group.right
+                //-             button.btn.btn-outline-secondary Update
 
 
 

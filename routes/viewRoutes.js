@@ -19,6 +19,7 @@ router.get('/deleteuser',authController.isLoggedIn,viewsController.getdeleteuser
 router.get('/deletepost',authController.isLoggedIn,viewsController.getdeletepost);
 router.get('/createpost',authController.isLoggedIn,viewsController.createpost);
 router.get('/category/subcategory/:sub',viewsController.getCategory);
+router.get('/publish',viewsController.publish);
 router.post('/resetPassword/:token',authController.resetPassword);
 router.post('/forgotPassword',authController.forgotPassword);
 router.post('/createuser', authController.createuser);
@@ -27,6 +28,7 @@ router.post('/deletepost',viewsController.deletepost);
 router.patch('/updateuser',viewsController.updateuser);
 router.post('/upload',viewsController.upload);
 router.post('/signup', authController.signup);
+
 // router.post('/createcomment',viewsController.createcomment);
 router.post('/createcomment/:id',viewsController.createcomment);
 
