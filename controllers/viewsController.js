@@ -274,6 +274,7 @@ exports.createpost= (req,res) =>{
   });
 };
 exports.createuser= (req,res) =>{
+  console.log("get");
   res.status(200).render('createuser', {
     title:'createuser'
   });

@@ -80,10 +80,8 @@ if (signupForm)
 if (uploadFiles)
 uploadFiles.addEventListener('submit',e=>{
   e.preventDefault();
-  console.log("fg");
   const photo = document.getElementById('photo').value;
   // const pdf = document.getElementById('pdf').value;
-  console.log("gg");
   uploadFiles(photo);
 
 })
