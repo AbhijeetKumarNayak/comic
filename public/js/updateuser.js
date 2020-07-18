@@ -2,7 +2,6 @@ import axios from 'axios';
 import { showAlert } from './alerts';
 export const updateuser = async (email,role) => {
     try {
-      console.log(email);
       const res = await axios({
         method: 'PATCH',
         url: '/updateuser',
@@ -19,7 +18,6 @@ export const updateuser = async (email,role) => {
         }, 1550);
       }
     } catch (err) {
-      console.log("nbhjhjh")
       showAlert('error', err.response.data.message);
     }
   };

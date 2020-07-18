@@ -14,8 +14,6 @@ block content
                       a(href=`/getcomic/${comic.slug}` style="color: black") #{comic.title}
                     .meta
                       span.date #{comic.createdAt}
-                      span.comment
-                        a(href="#" style="color: silver") 8 comments
                     .intro
                       | #{comic.hint}
                     a.more-link(href=`/getcomic/${comic.slug}`) Read more →

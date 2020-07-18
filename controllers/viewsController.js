@@ -166,7 +166,7 @@ exports.allcomics =catchAsync(async(req, res,next) => {
   .limitFields()
   .paginate();
   const allcomic = await features.query;
-  // console.log(allbook.category[0]);
+
   res.status(200).render('allbooks', {
     title: `${allbook.category} Comic`,
     allcomic
@@ -274,7 +274,7 @@ exports.createpost= (req,res) =>{
   });
 };
 exports.createuser= (req,res) =>{
-  console.log("get");
+
   res.status(200).render('createuser', {
     title:'createuser'
   });
@@ -372,7 +372,7 @@ const{ email}=req.body;
         const post = await Comic.findOneAndDelete({title});
     
         if (!post) {
-          return next(new AppError('No document found with that ID', 404));
+          return next(new AppError('No document found with that title', 404));
         }
     
         res.status(200).json({
@@ -397,7 +397,7 @@ const{ email}=req.body;
   });
 
 exports.upload = catchAsync(async (req, res, next) => {
-  console.log(req.body)
+
 const doc = await Comic.create(req.body);
 res.status(201).json({
   status: 'success',
@@ -512,8 +512,7 @@ exports.getCategory =catchAsync(async(req, res, next) => {
     });
 });
 exports.createcomment = catchAsync(async (req, res, next) => {
-  console.log(req.body);
-  console.log(req.params.id);
+
   const newReview = await Review.create({
     name: req.body.name,
     mail: req.body.mail,

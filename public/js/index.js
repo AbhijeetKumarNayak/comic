@@ -88,14 +88,12 @@ uploadFiles.addEventListener('submit',e=>{
 if(uploadData)
 uploadData.addEventListener('submit', e => {
   e.preventDefault();
-  console.log("jtfj");
   const name = document.getElementById('name').value;
   const price = document.getElementById('price').value;
   const category = document.getElementById('category').value;
   const imageCover = document.getElementById('imageCover').value;
   const download = document.getElementById('download').value;
   const summary = document.getElementById('summary').value;
-  // console.log(form);
   dataupload(name,price,category,imageCover,download,summary);
   // updateSettings(form, 'data');
 });
@@ -124,7 +122,7 @@ if (userDataForm)
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
-    console.log(form);
+
 
     updateSettings(form, 'data');
   });

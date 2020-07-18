@@ -20,7 +20,7 @@ export const createuser = async (name,email,password,confirmPassword) => {
         }, 1550);
       }
     } catch (err) {
-      console.log("nbhjhjh")
+      console.log(err);
       showAlert('error', err.response.data.message);
     }
   };

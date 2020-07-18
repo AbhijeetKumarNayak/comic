@@ -17,7 +17,6 @@ export const deletepost = async (title) => {
         }, 1550);
       }
     } catch (err) {
-      console.log("nbhjhjh")
       showAlert('error', err.response.data.message);
     }
   };

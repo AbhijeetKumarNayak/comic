@@ -23,7 +23,6 @@ export const upload = async (title,author,category,subcategory,hint,description)
         }, 1550);
       }
     } catch (err) {
-      console.log("nbhjhjh")
       showAlert('error', err.response.data.message);
     }
   };

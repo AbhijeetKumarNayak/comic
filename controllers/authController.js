@@ -71,14 +71,14 @@ exports.signup = catchAsync(async (req, res, next) => {
 
   const url = `${req.protocol}://${req.get('host')}/me`;
   
-  console.log(url);
+
   await new Email(newUser, url).sendWelcome();
 
   createSendToken(newUser, 201, res);
 
 });
 exports.createuser = catchAsync(async (req, res, next) => {
-  console.log("createuser");
+
   const { name,email, password,confirmPassword } = req.body;
   const newUser = await User.create({
     name: name,
@@ -89,7 +89,7 @@ exports.createuser = catchAsync(async (req, res, next) => {
 
   const url = `${req.protocol}://${req.get('host')}/me`;
   
-  // console.log(url);
+ 
   await new Email(newUser, url).sendWelcome();
 
   res.status(200).json({
@@ -127,7 +127,7 @@ exports.logout = (req, res) => {
 
 exports.protect = catchAsync(async (req, res, next) => {
   // 1) Getting token and check of it's there
-  console.log('protect');
+
   let token;
   if (
     req.headers.authorization &&
@@ -173,7 +173,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 
 // Only for rendered pages, no errors!
 exports.isLoggedIn = async (req, res, next) => {
-  console.log("isLoggedIn");
+
   if (req.cookies.jwt) {
     try {
       // 1) verify token
@@ -204,7 +204,6 @@ exports.isLoggedIn = async (req, res, next) => {
 };
 
 exports.restrictTo = (...roles) => {
-  console.log("restrict");
   return (req, res, next) => {
     // roles ['admin', 'lead-guide']. role='user'
     if (!roles.includes(req.user.role)) {
