@@ -31,13 +31,13 @@ block content
       .bar123
       select.form-control.form-control-sm.mt-3(onchange="window.location.href=this.value")
         option Select Category
-          optgroup(label=`Odia Sex Stories(${totalodia})`)
+          optgroup(label=`Odia Funny Stories(${totalodia})`)
           each comic in odia
             option(value=`/category/subcategory/${comic}`) #{comic} 
-          optgroup(label=`English Sex Stories(${totalenglish})`)
+          optgroup(label=`English Funny Stories(${totalenglish})`)
             each comic in english
               option(value=`/category/subcategory/${comic}`) #{comic} 
-          optgroup(label=`Hindhi Sex Stories(${totalhindhi})`)
+          optgroup(label=`Hindhi Funny Stories(${totalhindhi})`)
             each comic in hindhi
               option(value=`/category/subcategory/${comic}`) #{comic}  
   .col-xs-12.col-sm-12.col-md-14.col-lg-14.col-xl-14
